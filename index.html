@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRUNG TÂM NĂNG KHIẾU HẢI ÂU</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            /* Nền gỗ sang trọng */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?q=80&w=2083&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            color: #fff;
+            font-size: 1.2em;
+            position: fixed;
+            top: -10%;
+            z-index: 9999;
+            user-select: none;
+            animation: fall linear infinite, shake ease-in-out infinite;
+        }
+        @keyframes fall { 0% { top: -10%; } 100% { top: 100%; } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(50px); } }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            max-width: 500px;
+            width: 85%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: #f1c40f;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .intro {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #f8f9fa;
+            text-align: justify;
+            padding: 0 5px;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .link-btn {
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 50px; /* Nút bo tròn mềm mại */
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .link-btn:active {
+            transform: scale(0.95);
+            filter: brightness(0.9);
+        }
+
+        .hotline {
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+        .hotline a { color: #f1c40f; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="snow-container"></div>
+
+    <div class="container">
+        <h1>TRUNG TÂM NĂNG KHIẾU HẢI ÂU</h1>
+
+        <div class="intro">
+            We are truly honored to welcome you to <b>Hai Au Center for Gifted Talents</b>. <br><br>
+            Our distinguished programs encompass Piano, Classical & Contemporary Guitar, Organ, Percussion (Drums), Master of Ceremonies (MC), and Children's Dance – crafted to nurture artistry and passion with the utmost care and excellence.
+        </div>
+
+        <div class="links-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAqY82_xOYYHqfwhjTbUmd8NHTKZVi48oKTfQmhRa-2HZsdg/viewform" class="link-btn" target="_blank">📋 PHIẾU ĐĂNG KÝ</a>
+            <a href="https://maps.app.goo.gl/xrYsK8Re6MqcKwH49" class="link-btn" target="_blank">📍 CƠ SỞ TẠI LONG THỌ</a>
+            <a href="https://maps.app.goo.gl/JqSv1jRHP6fLuB2q6" class="link-btn" target="_blank">📍 CƠ SỞ TẠI PHƯỚC AN</a>
+        </div>
+
+        <div class="hotline">
+            📞 Hotline liên hệ: <br>
+            <a href="tel:0346311069">0346.311.069</a> - <a href="tel:0906851149">0906.851.149</a>
+        </div>
+    </div>
+
+    <script>
+        function createSnowflake() {
+            const snowContainer = document.getElementById('snow-container');
+            const snowflake = document.createElement('div');
+            const icons = ['❄', '❅', '❆', '•'];
+            snowflake.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            const fallDuration = Math.random() * 8 + 5;
+            snowflake.style.animationDuration = fallDuration + 's, 3s';
+            snowflake.style.opacity = Math.random();
+            snowContainer.appendChild(snowflake);
+            setTimeout(() => { snowflake.remove(); }, fallDuration * 1000);
+        }
+        setInterval(createSnowflake, 300);
+    </script>
+</body>
+</html>
